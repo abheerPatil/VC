@@ -35,5 +35,8 @@ public class StatusBar {
 		
 		return ((iPad.isDisplayed())&&(wifiBar.isDisplayed())&&(time.isDisplayed())&&(charging.isDisplayed()));
 	}
-
+	
+	public static boolean isOffline(){
+		return (wifiBar.isDisplayed());
+	}
 }
