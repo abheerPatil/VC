@@ -55,6 +55,12 @@ public class LoginPage {
 	@iOSFindBy(xpath="//XCUIElementTypeStatusBar")
 	private IOSElement statusBar;
 	
+	@iOSFindBy(accessibility="Not able to log in right now. Try again later.")
+	private IOSElement offlineMessage;
+	
+	@iOSFindBy(accessibility="Username/Password combination is incorrect")
+	private IOSElement incorrectCombinations;
+	
 	
 	private ArrayList<MobileElement> elements = new ArrayList<MobileElement>();
 	
@@ -91,7 +97,7 @@ public class LoginPage {
 			}
 		}
 		catch(Exception e){
-			System.err.println("Exception in class - LoginPage, in method - checkElements :"+e);
+			System.err.println("Exception in class - LoginPage, in method - isElementDisplayed :"+e);
 			return false;
 		}
 	}
@@ -108,7 +114,7 @@ public class LoginPage {
 			}
 		}
 		catch(Exception e){
-			System.err.println("Exception in class - LoginPage, in method - checkElements :"+e);
+			System.err.println("Exception in class - LoginPage, in method - checkIfClickable :"+e);
 			return false;
 		}
 	}
@@ -122,7 +128,7 @@ public class LoginPage {
 			return true;
 		}
 		catch(Exception e){
-			System.err.println("Exception in class - LoginPage, in method - checkElements :"+e);
+			System.err.println("Exception in class - LoginPage, in method - positiveLogin :"+e);
 			return false;
 		}
 	}
@@ -132,7 +138,55 @@ public class LoginPage {
 			return StatusBar.isDisplayed();
 		}
 		catch(Exception e){
-			System.err.println("Exception in class - LoginPage, in method - checkElements :"+e);
+			System.err.println("Exception in class - LoginPage, in method - isStatusBarActive :"+e);
+			return false;
+		}
+	}
+	
+	public boolean offlinelogin(){
+		try{
+			if(StatusBar.isOffline()==true){
+				
+				String preEnteredText = usernameField.getAttribute("value");
+				usernameField.clear();
+				usernameField.sendKeys("kiwitech1");
+				passwordField.sendKeys("hvavc1");
+				loginBtn.click();
+				if(preEnteredText.equals("kiwitech1")){
+					return (offlineMessage.isDisplayed());
+				}
+				else{
+					System.out.println("Offline Login because of same username");  //Log
+					return true;
+				}
+			}
+			else{
+				System.out.println("Not online");							//Log
+				return false;
+			}
+		}
+		catch(Exception e){
+			System.err.println("Exception in class - LoginPage, in method - offlinelogin :"+e);
+			return false;
+		}
+	}
+	
+	public boolean negativeLogin(){
+		try{
+			usernameField.clear();
+			usernameField.sendKeys("kiwitech1");
+			passwordField.sendKeys("qwerty");
+			loginBtn.click();
+			if(incorrectCombinations.isDisplayed()==true){
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+		}
+		catch(Exception e){
+			System.err.println("Exception in class - LoginPage, in method - negativelogin :"+e);
 			return false;
 		}
 	}
