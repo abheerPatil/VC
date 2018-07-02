@@ -40,10 +40,5 @@ public class ExtraFunctionalityCheck {
 		}
 		return elementList;
 	}
-	
-	public static boolean statusBarCheck(){
-		
-		
-		return false;
-	}
+
 }
