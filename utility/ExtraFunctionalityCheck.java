@@ -1,5 +1,9 @@
 package utility;
+import java.io.File;
 import java.util.ArrayList;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 
 import io.appium.java_client.MobileElement;
 
@@ -7,38 +11,29 @@ import io.appium.java_client.MobileElement;
 
 public class ExtraFunctionalityCheck {
 	
-	public static ArrayList<MobileElement> isClickable(ArrayList<MobileElement> elementList){
-		ArrayList<MobileElement> notClickable = new ArrayList<MobileElement>();
-		try{		
-			for(int i=0; i<elementList.size();i++){
-				if((elementList.get(i).getAttribute("type").equals("XCUIElementTypeImage"))||(elementList.get(i).getAttribute("type").equals("XCUIElementTypeStaticText")))
-					{
-						notClickable.add(elementList.get(i));
-					}
-				}
-			}
-			catch(Exception e){
-				System.err.println("Exception in class - ExtraFunctionalityCheck, in method - isClickable :"+e);
-			}
-		return notClickable;		
-	}
-
-	public static ArrayList<MobileElement> checkElements(ArrayList<MobileElement> elementList){
-		boolean check = true;
-		ArrayList<MobileElement> notDisplayed = new ArrayList<MobileElement>();
+	public static int getNumberFromString(String s){
 		try{
-			for(int i=0; i< elementList.size();i++){
-				check = ((check)&&(elementList.get(i).isDisplayed()));
-				if(check == false){
-					notDisplayed.add(elementList.get(i));
-					check = true;
-				}
-			}	
+			if(s.contains(" ")){
+		           s= s.substring(0, s.indexOf(" ")); 
+		           return Integer.parseInt(s);
+		        }    
+			return Integer.parseInt(s);
 		}
 		catch(Exception e){
-			System.err.println("Exception in class - ExtraFunctionalityCheck, in method - checkElements :"+e);
+			System.err.println("Exception in class - ExtraFunctionalityCheck, in method - getNumberFromString :"+e);
+			return 0;
 		}
-		return elementList;
+	}
+	
+	public static void getScreenshots(MobileElement element){
+		  try{
+			File screenshot = element.getScreenshotAs(OutputType.FILE);
+			File screenshotLocation1 = new File("/Users/kiwitech/Desktop/screenshots/screenshot.png");
+			FileUtils.copyFile(screenshot, screenshotLocation1); 
+		  }
+		  catch(Exception e){
+			  System.err.println("Exception in class - ExtraFunctionalityCheck, in method - getScreenshots :"+e);
+		  }
 	}
 
 }
