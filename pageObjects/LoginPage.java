@@ -1,6 +1,6 @@
 package pageObjects;
 
-import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.support.PageFactory;
 import io.appium.java_client.MobileElement;
@@ -8,7 +8,6 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import utility.ExtraFunctionalityCheck;
 
 public class LoginPage {
 	
@@ -17,109 +16,80 @@ public class LoginPage {
 	public LoginPage(IOSDriver<MobileElement> driver){
 		System.out.println("Started");
 		this.driver = driver;
-		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-		//PageFactory.initElements(new AjaxElementLocatorFactory(driver,20), this);
-		addToList();
+		PageFactory.initElements(new AppiumFieldDecorator(driver, 30, TimeUnit.SECONDS), this);
 	}
 	
 	@iOSFindBy(xpath="//XCUIElementTypeImage[@name='ug']")
-	private IOSElement image;
+	public IOSElement image;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeStaticText[@name='ValueChek']")
-	private IOSElement appName;
+	public IOSElement appName;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeStaticText[@name='Username']")
-	private IOSElement usernameLabel;
+	public IOSElement usernameLabel;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeTextField")
-	private IOSElement usernameField;
+	public IOSElement usernameField;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeStaticText[@name='Password']")
-	private IOSElement passwordLabel;
+	public IOSElement passwordLabel;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeSecureTextField")
-	private IOSElement passwordField;
+	public IOSElement passwordField;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeButton[@name='Forgot your password?']")
-	private IOSElement forgotPasswordLink;
+	public IOSElement forgotPasswordLink;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeButton[@name='Log In']")
-	private IOSElement loginBtn;
+	public IOSElement loginBtn;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeStaticText[@name='By using this application, you agree to the ']")
-	private IOSElement LabelBeforeTermsAndCond;
+	public IOSElement LabelBeforeTermsAndCond;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeButton[@name='Terms and Conditions']")
-	private IOSElement TermsAndCondLink;
+	public IOSElement TermsAndCondLink;
 	
 	@iOSFindBy(xpath="//XCUIElementTypeStatusBar")
-	private IOSElement statusBar;
+	public IOSElement statusBar;
 	
 	@iOSFindBy(accessibility="Not able to log in right now. Try again later.")
-	private IOSElement offlineMessage;
+	public IOSElement offlineMessage;
 	
 	@iOSFindBy(accessibility="Username/Password combination is incorrect")
-	private IOSElement incorrectCombinations;
+	public IOSElement incorrectCombinations;
 	
 	
-	private ArrayList<MobileElement> elements = new ArrayList<MobileElement>();
-	
-	private void addToList(){
+	public boolean clickAction(MobileElement element){
 		try{
-			elements.add(image);
-			elements.add(appName);
-			elements.add(usernameLabel);
-			elements.add(usernameField);
-			elements.add(passwordLabel);
-			elements.add(passwordField);
-			elements.add(forgotPasswordLink);
-			elements.add(loginBtn);
-			elements.add(LabelBeforeTermsAndCond);
-			elements.add(TermsAndCondLink);
-			elements.add(statusBar);
-			
+			element.click();
+			return true;
 		}
 		catch(Exception e){
-			System.err.println("Exception in class - LoginPage, in method - addToList :"+e);
-		}
-	}
-	
-	
-	public boolean isElementsDisplayed(){
-		
-		try{
-			if(ExtraFunctionalityCheck.checkElements(elements).size() == 0){
-				return true;
-			}
-			else{
-				System.out.println("Not Displayed :"+ExtraFunctionalityCheck.checkElements(elements));	//LOG
-				return false;
-			}
-		}
-		catch(Exception e){
-			System.err.println("Exception in class - LoginPage, in method - isElementDisplayed :"+e);
+			System.err.println("Exception in class - LoginPage, in method - clickAction :"+e);		//LOG
 			return false;
 		}
 	}
 	
 	
-	public boolean checkIfClickable(){
+	public boolean blankUsernameAndPassword(){
 		try{
-			if(ExtraFunctionalityCheck.isClickable(elements).size() == 0){
+			usernameField.clear();
+			loginBtn.click();
+			if(incorrectCombinations.isDisplayed()==true){
 				return true;
 			}
 			else{
-				System.out.println("Non Clickables :"+ExtraFunctionalityCheck.isClickable(elements)); //Log
 				return false;
 			}
 		}
 		catch(Exception e){
-			System.err.println("Exception in class - LoginPage, in method - checkIfClickable :"+e);
+			System.err.println("Exception in class - LoginPage, in method - blankUsernameAndPassword :"+e);		//LOG
 			return false;
 		}
 	}
 	
-	public boolean positiveLogin(){
+	
+	public boolean Login(){
 		try{
 			usernameField.clear();
 			usernameField.sendKeys("kiwitech1");
@@ -191,15 +161,4 @@ public class LoginPage {
 		}
 	}
 
-	public void showResults(){														//Remove
-		try{
-			System.out.println("All Elements : "+isElementsDisplayed());
-			System.out.println("All Clickable Elements : "+checkIfClickable());
-			System.out.println("Positive Login : "+positiveLogin());
-			System.out.println("Status Bar : "+isElementsDisplayed());
-		}
-		catch(Exception e){
-			System.out.println("Exception caught!");
-		}
-	}
 }
