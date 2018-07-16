@@ -23,6 +23,8 @@ public class LoginPage {
 	}
 
 /****************************************************************************ELEMENTS***************************************************************************************/	
+	//ELEMENTS COUNT: 13
+/**************************/	
 	
 	//IMAGE
 	@iOSFindBy(xpath="//XCUIElementTypeImage[@name='ug']")
@@ -78,7 +80,7 @@ public class LoginPage {
 
 	
 /****************************************************************************ACTIONS***************************************************************************************/	
-	/*ACTIONS COUNT: 3
+	/*ACTIONS COUNT: 4
 	 * 1. clickAction(MobileElement)  
 	 * 2. login(String,String)
 	 * 3. isStatusBar(null)
