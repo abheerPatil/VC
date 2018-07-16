@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-import io.appium.java_client.MobileBy.ByAccessibilityId;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
@@ -15,7 +14,7 @@ import io.appium.java_client.ios.IOSTouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSBy;
 import io.appium.java_client.pagefactory.iOSFindAll;
-import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import utility.ExtraFunctionalityCheck;
 import utility.ImageClass;
 
@@ -44,189 +43,215 @@ public class HomePage {
 	
 	
 	//MENU
-	@iOSFindBy(xpath="//XCUIElementTypeButton[1]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[1]")
 	public IOSElement menuButton;
 	
 	//PROPERTY PHASES
-	@iOSFindBy(xpath="//XCUIElementTypeButton[@name='PROPERTY PHASES']")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name='PROPERTY PHASES']")
 	public IOSElement propertyPhasesBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[1]")
 	public IOSElement newBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[2]")
 	public IOSElement newPropCount;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[2]")
 	public IOSElement activeBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[2]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[2]/XCUIElementTypeStaticText[2]")
 	public IOSElement activePropCount;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[3]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[3]")
 	public IOSElement pendingBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[3]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[3]/XCUIElementTypeStaticText[2]")
 	public IOSElement pendingPropCount;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[4]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[4]")
 	public IOSElement purchaseBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[4]/XCUIElementTypeStaticText[2]")
 	public IOSElement purchasedPropCount;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[5]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[5]")
 	public IOSElement archiveBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[5]/XCUIElementTypeStaticText[2]")
 	public IOSElement archivePropCount;
 	
 	//LOAN PHASES
-	@iOSFindBy(xpath="//XCUIElementTypeButton[@name='LOAN PHASES']")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name='LOAN PHASES']")
 	public IOSElement loanPhasesBtn;
 	
-	@iOSFindBy(accessibility="Submitted")
+	@iOSXCUITFindBy(accessibility="Submitted")
 	public IOSElement submittedBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[6]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[6]/XCUIElementTypeStaticText[2]")
 	public IOSElement submittedPropCount;
 	
-	@iOSFindBy(accessibility="In Review")
+	@iOSXCUITFindBy(accessibility="In Review")
 	public IOSElement inReviewBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[7]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[7]/XCUIElementTypeStaticText[2]")
 	public IOSElement inReviewPropCount;
 	
-	@iOSFindBy(accessibility="Denied")
+	@iOSXCUITFindBy(accessibility="Denied")
 	public IOSElement deniedBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[8]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[8]/XCUIElementTypeStaticText[2]")
 	public IOSElement deniedPropCount;
 	
-	@iOSFindBy(accessibility="Tabled")
+	@iOSXCUITFindBy(accessibility="Tabled")
 	public IOSElement tabledBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[9]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[9]/XCUIElementTypeStaticText[2]")
 	public IOSElement tabledPropCount;
 	
-	@iOSFindBy(accessibility="Approved")
+	@iOSXCUITFindBy(accessibility="Approved")
 	public IOSElement approvedBtn;
 	
-	@iOSFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[10]/XCUIElementTypeStaticText[2]")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeTable/XCUIElementTypeCell[10]/XCUIElementTypeStaticText[2]")
 	public IOSElement approvedPropCount;
 	
 	//DATE ADDED
-	@iOSFindBy(accessibility = "DATE ADDED")
+	@iOSXCUITFindBy(accessibility = "DATE ADDED")
 	public IOSElement dateAddedBtn;
 	
-	@iOSFindBy(accessibility="3 Months Ago")
+	@iOSXCUITFindBy(accessibility="3 Months Ago")
 	public IOSElement threeMonthsAgoBtn;
 	
-	@iOSFindBy(accessibility="6 Months Ago")
+	@iOSXCUITFindBy(accessibility="6 Months Ago")
 	public IOSElement sixMonthsAgoBtn;
 	
-	@iOSFindBy(accessibility="12 Months Ago")
+	@iOSXCUITFindBy(accessibility="12 Months Ago")
 	public IOSElement twelveMonthsAgoBtn;
 	
 	//TEAM
-	@iOSFindBy(xpath="//XCUIElementTypeButton[@name='TEAM']")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name='TEAM']")
 	public IOSElement teamBtn;
 	
-	@iOSFindBy(accessibility="Kiwi1 Tech")
+	@iOSXCUITFindBy(accessibility="Kiwi1 Tech")
 	public IOSElement kiwitech1Btn;
 	
-	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi1 Tech']/following::XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi1 Tech']/following::XCUIElementTypeStaticText")
 	public IOSElement kiwi1PropCount;
 	
-	@iOSFindBy(accessibility="Kiwi2 Tech")
+	@iOSXCUITFindBy(accessibility="Kiwi2 Tech")
 	public IOSElement kiwitech2Btn;
 	
-	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi2 Tech']/following::XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi2 Tech']/following::XCUIElementTypeStaticText")
 	public IOSElement kiwi2PropCount;
 	
-	@iOSFindBy(accessibility="Kiwi3 Tech")
+	@iOSXCUITFindBy(accessibility="Kiwi3 Tech")
 	public IOSElement kiwitech3Btn;
 	
-	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi3 Tech']/following::XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi3 Tech']/following::XCUIElementTypeStaticText")
 	public IOSElement kiwi3PropCount;
 	
-	@iOSFindBy(accessibility="Kiwi4 Tech")
+	@iOSXCUITFindBy(accessibility="Kiwi4 Tech")
 	public IOSElement kiwitech4Btn;
 	
-	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi4 Tech']/following::XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi4 Tech']/following::XCUIElementTypeStaticText")
 	public IOSElement kiwi4PropCount;
 	
-	@iOSFindBy(accessibility="Kiwi5 Tech")
+	@iOSXCUITFindBy(accessibility="Kiwi5 Tech")
 	public IOSElement kiwitech5Btn;
 	
-	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi5 Tech']/following::XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi5 Tech']/following::XCUIElementTypeStaticText")
 	public IOSElement kiwi5PropCount;
 	
-	@iOSFindBy(accessibility="Kiwi6 Tech")
+	@iOSXCUITFindBy(accessibility="Kiwi6 Tech")
 	public IOSElement kiwitech6Btn;
 	
-	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi6 Tech']/following::XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi6 Tech']/following::XCUIElementTypeStaticText")
 	public IOSElement kiwi6PropCount;
 	
-	@iOSFindBy(accessibility="Kiwi7 Tech")
+	@iOSXCUITFindBy(accessibility="Kiwi7 Tech")
 	public IOSElement kiwitech7Btn;
 	
-	@iOSFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi7 Tech']/following::XCUIElementTypeStaticText")
+	@iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='Kiwi7 Tech']/following::XCUIElementTypeStaticText")
 	public IOSElement kiwi7PropCount;
 	
 	//SETTINGS
-	@iOSFindBy(xpath="//XCUIElementTypeButton[@name='SETTINGS']")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name='SETTINGS']")
 	public IOSElement settingsBtn;
 	
-	@iOSFindBy(accessibility="Pricing Profiles")
+	@iOSXCUITFindBy(accessibility="Pricing Profiles")
 	public IOSElement pricingProfileBtn;
 	
-	@iOSFindBy(accessibility="FAQ")
+	@iOSXCUITFindBy(accessibility="FAQ")
 	public IOSElement fAQBtn;
 	
-	@iOSFindBy(accessibility="Support")
+	@iOSXCUITFindBy(accessibility="Support")
 	public IOSElement supportBtn;
 	
-	@iOSFindBy(accessibility="Terms and Conditions")
+	@iOSXCUITFindBy(accessibility="Terms and Conditions")
 	public IOSElement termsAndConditionBtn;
 	
-	@iOSFindBy(accessibility="Privacy Policy")
+	@iOSXCUITFindBy(accessibility="Privacy Policy")
 	public IOSElement privacyPolicyBtn;
 	
-	@iOSFindBy(accessibility="Feedback")
+	@iOSXCUITFindBy(accessibility="Feedback")
 	public IOSElement feedbackBtn;
 	
-	@iOSFindBy(accessibility="Log Out")
+	@iOSXCUITFindBy(accessibility="Log Out")
 	public IOSElement logOutBtn;
 	
 	//HEADER
-	@iOSFindBy(accessibility="My Properties")
+	@iOSXCUITFindBy(accessibility="My Properties")
 	public IOSElement homePageHeading;
 	
-	@iOSFindBy(xpath="XCUIElementButton[@name='search']")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name='search']")
 	public IOSElement searchBar;
 	
-	@iOSFindBy(xpath="XCUIElementButton[@name='iconBell']")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name='iconBell']")
 	public IOSElement notificationBell;
 	
-	@iOSFindBy(xpath="XCUIElementButton[@name='iconNewProperty']")
+	@iOSXCUITFindBy(xpath="//XCUIElementTypeButton[@name='iconNewProperty']")
 	public IOSElement addPropertyBtn;
 	
 	//PROPERTY CARDS
 	@iOSFindAll({@iOSBy(xpath="(//XCUIElementTypeImage[@name='card'])")})
 	public ArrayList<IOSElement> cards;
 	
-	@iOSFindBy(xpath="(//XCUIElementTypeImage[@name='card'])[10]")
+	@iOSXCUITFindBy(xpath="(//XCUIElementTypeImage[@name='card'])[10]")
 	public IOSElement finalRow;
 	
-	@iOSFindBy(xpath="(//XCUIElementTypeImage[@name='card'])[4]")
+	@iOSXCUITFindBy(xpath="(//XCUIElementTypeImage[@name='card'])[4]")
 	public IOSElement secondRow;
 	
 	//NOTIFICATION BELL
-	//@iOSFindBy
+	
+	//Details of first property in notification bell
+	@iOSXCUITFindBy(iOSNsPredicate=" rect.y == 146 OR rect.y == 175 OR rect.y == 171 ")
+	public ArrayList<IOSElement> firstNotification;
+	
+	@iOSXCUITFindBy(iOSNsPredicate=" type == 'XCUIElementTypeButton' AND name == 'See All'")
+	public IOSElement seeAllBtn;
+	
+	@iOSXCUITFindBy(iOSNsPredicate=" rect.x = 912 AND rect.y = 26")
+	public IOSElement notificationCountElement;
 	
 
 /****************************************************************************ACTIONS***************************************************************************************/	
+	/*ACTIONS COUNT: 14
+	 * 1. isDisplayed(MobileElement element)  
+	 * 2. clickBtn(MobileElement element)
+	 * 3. checkPhasesCount(String tag-name,Integer cell-no)
+	 * 4. checkPropertyPhaseSelectedItem(Integer cell-no)
+	 * 5. checkLoanPhaseSelectedItem(Integer cell-no)
+	 * 6. checkDateAddedSelectedItem(Integer cell-no)
+	 * 7. checkHeaderOpened(Integer cell-no)
+	 * 8. userItems(String user)
+	 * 9. countProperties(MobileElement element)
+	 * 10. swipeProperties(null)
+	 * 11. findPropByString(Integer totalPropShown , String string)
+	 * 12. findPropByIndex(Integer totalPropShown , Integer index)
+	 * 13. checkFirstNotification(String provided address/project name)
+	 * 14. notificationCount(null)
+	 */
+/*******************************/
 	
 	/*Method to check if an element is displayed or not.
 	 * Parameters : MobileElement 
@@ -260,22 +285,6 @@ public class HomePage {
 		}
 	}
 	
-	
-	/*Method to check if an element is displayed or not.
-	 * Parameters : Element 
-	 * Returns : true is action is done and false if there is any exception in that.
-	 * NOTE: Needs scrolling if data is not currently on screen but is on page
-	 */
-	public boolean propertyClick(int num){
-		try{
-			cards.get(num-1).click();
-			return true;
-		}
-		catch(Exception e){
-			System.err.println("Exception in class - HomePage, in method - propertyClick :"+e);
-			return false;
-		}
-	}
 	
 	
 	/*Method to verify the number of phase tags of a property with the value given in menu.
@@ -576,7 +585,7 @@ public class HomePage {
 	
 	
 	/*Method to check if these users are displayed or not.
-	 * Parameters : String(username) 
+	 * Parameters : String(user's name) 
 	 * Returns : true if appropriate team is displayed.
 	 * NOTE: Needs scrolling if data is not currently on screen but is on page
 	 */
@@ -713,11 +722,40 @@ public class HomePage {
 		}
 	}
 	
+	/*Method to Check if the first notification in notification bell is same as the string provided.
+	 * Parameters : String 
+	 * Returns : true if the property is same , false otherwise.
+	 */
+	@SuppressWarnings("unused")
+	public boolean checkFirstNotification(String s){
+		try{
+			for(int i=0;i<firstNotification.size();i++){
+				if(firstNotification.get(i).toString().equals(s));{
+					return true;
+				}
+			}
+			return false;
+		}
+		catch(Exception e){
+			System.err.println("Exception in class - HomePage, in method - checkFirstNotification :"+e);
+			return false;
+		}
+	}
 	
-	
-	public void check(){
-		System.out.println(cards.size());
-		
+	/*Method to provide the count of notifications on notification bell.
+	 * Parameters : null 
+	 * Returns : integer representation of notification count.
+	 */
+	public int notificationCount(){
+		try{
+			String element = notificationCountElement.getAttribute("Name").toString();
+			int count = Integer.parseInt(element);
+			return count;
+		}
+		catch(Exception e){
+			System.err.println("Exception in class - HomePage, in method - notificationCount :"+e);
+			return 0;
+		}
 	}
 	
 }
