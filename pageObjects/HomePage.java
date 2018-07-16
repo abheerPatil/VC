@@ -251,7 +251,7 @@ public class HomePage {
 	 * 13. checkFirstNotification(String provided address/project name)
 	 * 14. notificationCount(null)
 	 */
-/*******************************/
+/**************************************************************************/
 	
 	/*Method to check if an element is displayed or not.
 	 * Parameters : MobileElement 
