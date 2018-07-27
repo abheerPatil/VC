@@ -252,11 +252,11 @@ public class Property_Comparables {
 	
 /****************************************************************************ACTIONS***************************************************************************************/	
 	/*ACTIONS COUNT: 12
-	 * 1. swipeTillComparable(int i)
-	 * 2. selectingComparableRow(IOSElement element , int index)
+	 * 1. swipeTillComparable(Integer i)
+	 * 2. selectingComparableRow(IOSElement element , Integer index)
 	 * 3. swipeTop()
-	 * 4. selectItem(IOSElement element, int index)
-	 * 5. selectPicker(int column, String direction)
+	 * 4. selectItem(IOSElement element, Integer index)
+	 * 5. selectPicker(Integer column, String direction)
 	 * 6. verifyFields(IOSElement element, String comparable)
 	 * 7. verifyCheckBoxIsSeleceted(IOSElement element)
 	 * 8. getField(IOSElement cell)
