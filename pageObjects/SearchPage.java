@@ -74,7 +74,7 @@ public class SearchPage {
 		
 		
 /****************************************************************************ACTIONS***************************************************************************************/
-		/*ACTIONS COUNT: 4
+		/*ACTIONS COUNT: 2
 		 * 1. clickBtn(MobileElement element) 
 		 * 2. search(String type , String input , Integer position)
 		 */
